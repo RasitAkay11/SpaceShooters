@@ -1,4 +1,7 @@
+#include <iostream>
 #include "spaceship.hpp"
+
+using namespace std;
 
 Spaceship::Spaceship()
 {
@@ -23,6 +26,10 @@ void Spaceship::MoveLeft()
     {
         position.x -= 7;
     }
+    else
+    {
+        std::cout << "Spaceship maximum left has been reached" << endl; 
+    }
 }
 
 void Spaceship::MoveRight()
@@ -30,5 +37,9 @@ void Spaceship::MoveRight()
     if(position.x <= GetScreenWidth() - image.width - 5)
     {
         position.x += 7;
+    }
+    else
+    {
+        std::cout << "Spaceship maximum right has been reached" << endl; 
     }
 }
