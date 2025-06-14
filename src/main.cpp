@@ -1,5 +1,5 @@
 #include <raylib.h>
-#include "spaceship.hpp"
+#include "game.hpp"
 
 int main() 
 {
@@ -7,15 +7,17 @@ int main()
     InitWindow(750, 700, "C++ space shooters! Made by Rasit Akay..");
     SetTargetFPS(144);
 
-    Spaceship spaceship;
+    Game game;
 
     //This function returns true if the ESC button on the keyboard or in the game is pressed.
     while(WindowShouldClose() == false)
     {
+        game.HandleInput();
+        
         BeginDrawing();
         ClearBackground(grey);
+        game.Draw();
 
-        spaceship.Draw();
         EndDrawing();
     }
 
