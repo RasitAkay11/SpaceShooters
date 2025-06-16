@@ -19,8 +19,5 @@ void Laser::Update(){
         if(position.y < 0){
             active = false;
         }
-        else {
-            std::cout << "laser inactive" << std::endl;
-        }
     }
 }
