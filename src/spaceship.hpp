@@ -13,8 +13,9 @@ class Spaceship{
     void MoveRight();
     void FireLaser();
     std::vector<Laser> lasers;
-    
+
     private:
     Texture2D image;
     Vector2 position;
+    double lastFireTime;
 };

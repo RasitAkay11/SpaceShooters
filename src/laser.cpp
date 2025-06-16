@@ -1,29 +1,25 @@
 #include "laser.hpp"
 #include <iostream>
 
-Laser::Laser(Vector2 position, int speed)
-{
+Laser::Laser(Vector2 position, int speed){
     this -> position = position;
     this -> speed = speed;
     active = true;
 }
 
-void Laser::Draw()
-{
-    if(active)
-    {
+void Laser::Draw(){
+    if(active){
     DrawRectangle(position.x, position.y, 4, 15, {243, 216, 36, 255});
     }
 }
 
-void Laser::Update()
-{
+void Laser::Update(){
     position.y += speed;
-    if(active)
-    {
-        if(position.y > GetScreenHeight() || position.x < 0)
-        {
+    if(active){
+        if(position.y < 0){
             active = false;
+        }
+        else {
             std::cout << "laser inactive" << std::endl;
         }
     }

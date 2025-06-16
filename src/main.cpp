@@ -4,7 +4,7 @@
 int main() 
 {
     Color grey = {29,29,27,255};
-    InitWindow(750, 700, "C++ space shooters! Made by Rasit Akay..");
+    InitWindow(750 + 50, 700, "C++ space shooters! Made by Rasit Akay..");
     SetTargetFPS(144);
 
     Game game;
