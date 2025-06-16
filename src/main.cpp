@@ -1,6 +1,5 @@
 #include <raylib.h>
 #include "game.hpp"
-#include "laser.hpp"
 
 int main() 
 {
@@ -9,16 +8,14 @@ int main()
     SetTargetFPS(144);
 
     Game game;
-    Laser laser = Laser({100, 100}, -7);
     //This function returns true if the ESC button on the keyboard or in the game is pressed.
     while(WindowShouldClose() == false)
     {
         game.HandleInput();
-        laser.Update();
+        game.Update();
         BeginDrawing();
         ClearBackground(grey);
         game.Draw();
-        laser.Draw();
         EndDrawing();
     }
 
