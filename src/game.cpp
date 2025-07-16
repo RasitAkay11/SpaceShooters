@@ -1,16 +1,24 @@
 #include "game.hpp"
 #include <iostream>
 Game::Game(){
-    aliens = CreateAliens();
+    aliensDirection = 1;
 }
 
 Game::~Game(){
+    Alien::UnloadImages();
 }
 
 void Game::Update(){
     for(auto& laser: Spaceship.lasers){
         laser.Update();
     }
+    MoveAliens();
+
+    if(GetTime() - lastAlienSpawnTime >= 0.5){
+        aliens = CreateAliens();
+        lastAlienSpawnTime = GetTime();
+    }
+
     DeleteInactiveLasers();
 }
 
@@ -55,4 +63,10 @@ std::vector<Alien> Game::CreateAliens()
     aliens.push_back(Alien(1, {50, 50}));
 
     return aliens;
+}
+
+void Game::MoveAliens(){
+    for(auto& alien: aliens){
+        alien.Update(aliensDirection);
+    }
 }
